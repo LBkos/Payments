@@ -8,10 +8,11 @@
 import SwiftUI
 
 @main
-struct PaymentsApp: App {
+struct PaymentsAppApp: App {
+    let viewModel = ViewModel()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environmentObject(viewModel)
         }
     }
 }
