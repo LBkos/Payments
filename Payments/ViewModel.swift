@@ -23,7 +23,7 @@ class ViewModel: ObservableObject {
         ]
     
     
-    func getTokenApi(completion: @escaping (Token?)-> Void) {[self]
+    func getTokenApi(completion: @escaping (Token?)-> Void) {
         parameters["login"] = login
         parameters["password"] = password
 //request token
@@ -47,8 +47,6 @@ class ViewModel: ObservableObject {
     }
     func getDataApi(token: String, completion: @escaping ([Response]?)-> Void) {
         //request data
-        
-        print("\(url!)payments?token=\(token)")
         AF.request("\(url!)payments?token=\(token)", method: .get, parameters: parameters , headers: headers).validate().response { response in
             switch response.result {
             case .success(let value):
